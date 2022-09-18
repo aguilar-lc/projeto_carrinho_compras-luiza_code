@@ -1,0 +1,93 @@
+##### Rota Raiz Boas Vindas #####
+GET http://localhost:8000/
+
+
+###### Cadastro do usuario #######
+POST http://localhost:8000/usuario
+
+{
+    "id": 1,
+    "nome": "Lilian",
+    "email": "lilian@gmail",
+    "senha": "1234"
+}
+
+####### Consultar usuario pelo ID ########
+GET http://localhost:8000/usuario-por-id/1
+
+########## Consultar usuario pelo Nome ##########
+GET http://localhost:8000/usuario-por-nome/Lilian
+
+############# Deletar usuario pelo ID ##############
+DELETE  http://localhost:8000/usuario-delete-por-id/1
+
+####### Cadastro do endereço ########
+POST http://localhost:8000/endereco/1
+
+{
+    "id_endereco": 1,
+    "rua": "Rua Ladrilhada",
+    "cep": "99999-999",
+    "cidade": "Marília",
+    "estado": "SP"
+}
+
+###### Consultar usuario pelo endereço #######
+GET http://localhost:8000/usuario-por-endereco/1
+
+############# Remover endereço ##############
+DELETE http://localhost:8000/usuario-delete-por-endereco/1
+
+###### Cadastro 1º produto #######
+POST http://localhost:8000/produto
+
+{
+    "id": 1,
+    "nome": "Sorvete",
+    "descricao": "Doce gelado",
+    "preco": 9.99
+}
+
+###### Cadastro 2º produto #######
+POST http://localhost:8000/produto
+
+{
+    "id": 2,
+    "nome": "Batata Frita",
+    "descricao": "Salgado crocante",
+    "preco": 8.50
+}
+
+###### Cadastro 3º produto #######
+POST http://localhost:8000/produto
+
+{
+    "id": 3,
+    "nome": "Refrigerante",
+    "descricao": "Bebida gaseificada",
+    "preco": 8.50
+}
+
+############## Deletar produto por id ################
+DELETE  http://localhost:8000/produto-delete-pelo-id/1
+
+#################################################
+###### Criar carrinho e adicionar produtos ######
+#primeiro número = id do usuario
+#segundo número = id do produto
+POST http://127.0.0.1:8000/carrinho/1/3 HTTP/1.1
+
+
+##################################################
+############### Pegar carrinho ###################
+#número = id do usuario
+GET http://127.0.0.1:8000/carrinho/1/ HTTP/1.1
+
+
+##################################################
+############## Deletar carrinho ##################
+#número = id do usuario
+DELETE http://127.0.0.1:8000/carrinho/1/ HTTP/1.1
+
+
+
